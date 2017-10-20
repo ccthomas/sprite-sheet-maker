@@ -1,5 +1,21 @@
 # Sprite Sheet Maker
 
+## Todo
+* Finish Debugging
+  * Save Sprite Sheet
+* Implement Key Features
+  * Constant Width & Height
+* Document Code
+* Rename
+  * ssmimage
+    * Additional Classes in Dir were deleted. spritesheet.py is all that remains and package name does not fit the single file
+* Create
+  * Proper README
+  * Release Notes / Verison Number
+  * License for the Project (MIT Most likely)
+  * Contributing Markdown File?
+ 
+
 ## Debugging
 * Current Bug: Can't Save SpriteSheet
   * 1. ![Application](debugging-resources/Application.png)
