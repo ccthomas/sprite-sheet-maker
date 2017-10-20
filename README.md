@@ -1,5 +1,11 @@
 # Sprite Sheet Maker
 
+## Debugging
+* Current Bug: Can't Save SpriteSheet
+  * 1. ![Application](debugging-resources/Application.png)
+  * 2. ![Saving](debugging-resources/Saving%20Sprite%20Sheet.png)
+  * 3. ![Terminal Output](debugging-resources/Terminal%20Output.png)
+
 ## Initial Design
 ```
 # Scene 1
