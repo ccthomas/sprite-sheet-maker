@@ -1,72 +1,16 @@
 # Sprite Sheet Maker
+SSM was Developed in an afternoon for self use and was completed some restrictions
+* NO CHECKS IN PLACE FOR IMPROPER IMAGE LOCATION, ROW OR COLUMN NUMBER
+* Only Supports PNG Files
+* The number of Sprites in each Row and Column must be less than or equal to the previous Row & Column
+* NOTE: Constant Width & Height Options in GUI have not been implemented
 
-## Todo
-* Finish Debugging
-  * Save Sprite Sheet
-* Implement Key Features
-  * Constant Width & Height
-* Document Code
-* Rename
-  * ssmimage
-    * Additional Classes in Dir were deleted. spritesheet.py is all that remains and package name does not fit the single file
-* Create
-  * Proper README
-  * Release Notes / Verison Number
-  * License for the Project (MIT Most likely)
-  * Contributing Markdown File?
- 
+## Documentation
+- [Documentation](DOCUMENTATION.md)
 
-## Debugging
-* Current Bug: Can't Save SpriteSheet
-  * 1. ![Application](debugging-resources/Application.png)
-  * 2. ![Saving](debugging-resources/Saving%20Sprite%20Sheet.png)
-  * 3. ![Terminal Output](debugging-resources/Terminal%20Output.png)
+## Version 1.0.0
+Click [here](RELEASE-NOTES.md) for details.
 
-## Initial Design
-```
-# Scene 1
-|---------------------------|
-|x-  Sprite Sheet Maker     |
-|---------------------------|
-| [Add Image]               |
-|---------------------------|
-- [Add Image] is a Button
- 
- 
-# Scene 2
-|===========================|
-|x-  Sprite Sheet Maker     |
-|===========================|
-| Row Col  Image Name       |
-|---------------------------|
-| []  []   ImageName.png    |
-| [Add Image]               |
-|                           |
-| [Create] [Reset]          |
-|===========================|
-- Row, Col, & Image Name are Labels
-- [] Entry boxes, takes a number for the row and column
-- ImageName.png is a EntryBox that can be endited
-- [Add Image] Button that pops up a File Dialog Box to pick a Png
-- [Create] Button that pops up a entry field to name the sprite sheet
-- [Reset] Button that resets to Scene 1 state
- 
- 
-# Final Scene Example
-|===========================|
-|x-  Sprite Sheet Maker     |
-|===========================|
-| Row Col  Image Name       |
-|---------------------------|
-| [0] [0]  ImageName0.png   |
-| [0] [1]  ImageName1.png   |
-| [0] [2]  ImageName2.png   |
-| [1] [0]  ImageName3.png   |
-| [1] [1]  ImageName4.png   |
-| [2] [0]  ImageName5.png   |
-| [3] [0]  ImageName6.png   |
-| [Add Image]               |
-|                           |
-| [Create] [Reset]          |
-|===========================|
-```
+## License
+This project is licensed under the terms of the MIT license.
+> [license](LICENSE.md)
