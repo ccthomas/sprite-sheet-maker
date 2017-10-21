@@ -13,4 +13,4 @@ Click [here](RELEASE-NOTES.md) for details.
 
 ## License
 This project is licensed under the terms of the MIT license.
-> [license](LICENSE.md)
+> [license](LICENSE)
