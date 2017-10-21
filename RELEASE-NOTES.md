@@ -1,8 +1,8 @@
 # Versions
-- [0.0.1](0.0.1)
-- [1.0.0](1.0.0)
+- [0.0.1](#version-001)
+- [1.0.0](#version-100)
 
-## 0.0.1
+## Version 0.0.1
 Initial Design
 ```
 # Scene 1
@@ -52,7 +52,7 @@ Initial Design
 |===========================|
 ```
 
-## 1.0.0
+## Version 1.0.0
 * Allows User to Dynamically add Image Paths
 * User can change Images Row and Column Number
 * User can Create specify Same Image and create Sprite Sheet
