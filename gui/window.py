@@ -1,11 +1,13 @@
-import sys
-from ssmimage.spritesheet import SpriteSheet
+from objects.spritesheet import SpriteSheet
 from tkinter.filedialog import askopenfilename, asksaveasfilename
 from tkinter import Button, Checkbutton, Entry, IntVar, Label, W
 import tkinter as tk
 
 
 class Window:
+    """
+    GUI Window
+    """
 
     def __init__(self):
         """Initialize Sprite Sheet Maker Window"""
@@ -15,8 +17,8 @@ class Window:
         self.master.resizable(width=True, height=True)
 
         self.current_dir = "/"
-        self.constant_cell_width = IntVar()
-        self.constant_cell_height = IntVar()
+        self.constant_cell_width = IntVar()  # Not Implemented
+        self.constant_cell_height = IntVar()  # Not Implemented
         self.row_entry = {}
         self.col_entry = {}
         self.img_entry = {}
@@ -30,50 +32,17 @@ class Window:
         self.footer_buttons_row_offset = 0
         self.button_add_image = None
         self.button_duplicate_image = None
-        self.checkbutton_constant_cell_width = None
-        self.checkbutton_constant_cell_height = None
+        self.checkbutton_constant_cell_width = None  # Not Implemented
+        self.checkbutton_constant_cell_height = None  # Not Implemented
         self.button_create = None
         self.button_reset = None
 
-        self.init_row()
-
-    def init_row(self):
+        # Add First Row
         self.button_add_image = Button(self.master, command=self.button_add_image_pressed, text="Add Image")
         self.button_add_image.grid(row=self.footer_buttons_row_offset, column=0, columnspan=2, sticky=W)
 
-    def button_create_pressed(self):
-        file_name = asksaveasfilename()
-
-        spritesheet = SpriteSheet()
-        spritesheet.set_save_file(file_name)
-        spritesheet.set_constant_cell_width(self.constant_cell_width)
-        spritesheet.set_constant_cell_height(self.constant_cell_height)
-
-        len_of_entry = len(self.row_entry)
-        for entry_num in range(len_of_entry):
-            row = self.row_entry[repr(entry_num)].get()
-            col = self.col_entry[repr(entry_num)].get()
-            img = self.img_entry[repr(entry_num)].get()
-
-            spritesheet.add_image(img, row, col)
-
-        spritesheet.create_spritesheet()
-        spritesheet.save_sprite_sheet()
-
-    def update_footer_buttons(self):
-        # Increase Button Add & Duplicate Row Num
-        self.footer_buttons_row_offset = self.footer_buttons_row_offset + 1
-
-        self.button_add_image.grid(row=self.footer_buttons_row_offset, column=0, columnspan=2, sticky=W)
-        self.button_duplicate_image.grid(row=self.footer_buttons_row_offset, column=2, columnspan=2, sticky=W)
-        self.checkbutton_constant_cell_width.grid(row=self.footer_buttons_row_offset + 1, column=0, columnspan=3,
-                                                  sticky=W)
-        self.checkbutton_constant_cell_height.grid(row=self.footer_buttons_row_offset + 2, column=0, columnspan=3,
-                                                   sticky=W)
-        self.button_create.grid(row=self.footer_buttons_row_offset + 3, column=0, columnspan=2, sticky=W)
-        self.button_reset.grid(row=self.footer_buttons_row_offset + 3, column=2, columnspan=2, sticky=W)
-
     def add_row(self, image_location):
+        """Add New Row"""
         if len(self.row_entry) == 0:
             # Add Header
             self.label_row = Label(self.master, text="row")
@@ -120,6 +89,7 @@ class Window:
         self.img_entry[repr(len(self.img_entry))] = e
 
     def button_add_image_pressed(self):
+        """Get Image File Location"""
         image_location = askopenfilename(initialdir=self.current_dir, title="Select Image")
 
         if image_location != "":
@@ -131,7 +101,28 @@ class Window:
 
             self.add_row(image_location)
 
+    def button_create_pressed(self):
+        """Create Sprite Sheet"""
+        file_name = asksaveasfilename()
+
+        spritesheet = SpriteSheet()
+        spritesheet.set_save_file(file_name)
+        spritesheet.set_constant_cell_width(self.constant_cell_width)
+        spritesheet.set_constant_cell_height(self.constant_cell_height)
+
+        len_of_entry = len(self.row_entry)
+        for entry_num in range(len_of_entry):
+            row = self.row_entry[repr(entry_num)].get()
+            col = self.col_entry[repr(entry_num)].get()
+            img = self.img_entry[repr(entry_num)].get()
+
+            spritesheet.add_image(img, row, col)
+
+        spritesheet.create_spritesheet()
+        spritesheet.save()
+
     def button_duplicate_image_pressed(self):
+        """Duplicate Previous Image"""
         image_location = self.img_entry[repr(len(self.img_entry)-1)].get()
         self.add_row(image_location)
 
@@ -156,8 +147,8 @@ class Window:
 
         # Global Vars
         self.current_dir = "/"
-        self.constant_cell_width = IntVar()
-        self.constant_cell_height = IntVar()
+        self.constant_cell_width = IntVar()  # Not Implemented
+        self.constant_cell_height = IntVar()  # Not Implemented
         self.row_entry = {}
         self.col_entry = {}
         self.img_entry = {}
@@ -166,13 +157,28 @@ class Window:
         self.footer_buttons_row_offset = 0
         self.button_add_image = None
         self.button_duplicate_image = None
-        self.checkbutton_constant_cell_width = None
-        self.checkbutton_constant_cell_height = None
+        self.checkbutton_constant_cell_width = None  # Not Implemented
+        self.checkbutton_constant_cell_height = None  # Not Implemented
         self.button_create = None
         self.button_reset = None
 
-        self.init_row()
+        # Add First Row
+        self.button_add_image = Button(self.master, command=self.button_add_image_pressed, text="Add Image")
+        self.button_add_image.grid(row=self.footer_buttons_row_offset, column=0, columnspan=2, sticky=W)
 
     def mainloop(self):
         """main loop for tkinter window"""
         self.master.mainloop()
+
+    def update_footer_buttons(self):
+        """Update Footer Buttons Grid Location"""
+        self.footer_buttons_row_offset = self.footer_buttons_row_offset + 1
+
+        self.button_add_image.grid(row=self.footer_buttons_row_offset, column=0, columnspan=2, sticky=W)
+        self.button_duplicate_image.grid(row=self.footer_buttons_row_offset, column=2, columnspan=2, sticky=W)
+        self.checkbutton_constant_cell_width.grid(row=self.footer_buttons_row_offset + 1, column=0, columnspan=3,
+                                                  sticky=W)
+        self.checkbutton_constant_cell_height.grid(row=self.footer_buttons_row_offset + 2, column=0, columnspan=3,
+                                                   sticky=W)
+        self.button_create.grid(row=self.footer_buttons_row_offset + 3, column=0, columnspan=2, sticky=W)
+        self.button_reset.grid(row=self.footer_buttons_row_offset + 3, column=2, columnspan=2, sticky=W)
