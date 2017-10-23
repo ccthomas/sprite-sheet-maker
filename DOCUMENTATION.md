@@ -15,7 +15,7 @@
       * Gets image_location from User in a File Dialog Pop Up
       * Calls add_row(image_location)
     * button_create_pressed()
-      * Creates a new [SpriteSheet](Objects Package) Object
+      * Creates a new [SpriteSheet](#objects-package) Object
       * Loops through each row, passing the information for each Sprite into the SpriteSheet
       * Saves the SpriteSheet at a Location chosen by the User in a File Dialog Pop Up
     * button_duplicate_image_pressed()
