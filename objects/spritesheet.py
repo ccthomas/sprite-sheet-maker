@@ -18,7 +18,6 @@ class SpriteSheet:
 
         """
         Determines if the Sprite Sheet uses a constant Width and Height for all Rows and Columns
-        TODO: Implement the feature listed
         """
         self.constant_cell_width = 0
         self.constant_cell_height = 0
@@ -68,9 +67,20 @@ class SpriteSheet:
     def create_spritesheet(self):
         """Create Sprite Sheet"""
 
-        max_width = max([sum(row_in) for row_in in self.spritesheet_row_widths])
-        max_height = max([sum(row_in) for row_in in self.spritesheet_col_heights])
-        self.spritesheet = Image.new("RGBA", (max_width, max_height))  # RGBA is for PNG, Will not allow saving of GIF
+        cell_width = 0
+        cell_height = 0
+        if self.constant_cell_width == 1:
+            cell_width = max([max(row_in) for row_in in self.spritesheet_row_widths])
+            sum_width = cell_width * len(max(self.spritesheet_row_widths, key=len))
+        else:
+            sum_width = max([sum(row_in) for row_in in self.spritesheet_row_widths])
+
+        if self.constant_cell_height == 1:
+            cell_height = max([max(row_in) for row_in in self.spritesheet_col_heights])
+            sum_height = cell_height * len(max(self.spritesheet_col_heights, key=len))
+        else:
+            sum_height = max([sum(row_in) for row_in in self.spritesheet_col_heights])
+        self.spritesheet = Image.new("RGBA", (sum_width, sum_height))  # RGBA is for PNG, Will not allow saving of GIF
 
         for sprite_info in self.sprites:
             image = sprite_info["image"]
@@ -79,8 +89,14 @@ class SpriteSheet:
 
             width, height = image.size
 
-            left = self.sum_prev_cols_heights(row_number, column_number)
-            upper = self.sum_prev_rows_widths(row_number, column_number)
+            if self.constant_cell_width == 1:
+                left = cell_width * column_number
+            else:
+                left = self.sum_prev_cols_heights(row_number, column_number)
+            if self.constant_cell_height == 1:
+                upper = cell_height * row_number
+            else:
+                upper = self.sum_prev_rows_widths(row_number, column_number)
             right = left + width
             lower = upper + height
 

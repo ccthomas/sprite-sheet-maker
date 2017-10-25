@@ -60,3 +60,6 @@ Initial Design
   * Only Supports PNG Files
   * The number of Sprites in each Row and Column must be less than or equal to the previous Row & Column
 * NOTE: Constant Width & Height Options in GUI have not been implemented
+
+## Version 1.1.0
+* Add Functionality for the Constant Width and Height Options

@@ -17,8 +17,8 @@ class Window:
         self.master.resizable(width=True, height=True)
 
         self.current_dir = "/"
-        self.constant_cell_width = IntVar()  # Not Implemented
-        self.constant_cell_height = IntVar()  # Not Implemented
+        self.constant_cell_width = IntVar()
+        self.constant_cell_height = IntVar()
         self.row_entry = {}
         self.col_entry = {}
         self.img_entry = {}
@@ -32,8 +32,8 @@ class Window:
         self.footer_buttons_row_offset = 0
         self.button_add_image = None
         self.button_duplicate_image = None
-        self.checkbutton_constant_cell_width = None  # Not Implemented
-        self.checkbutton_constant_cell_height = None  # Not Implemented
+        self.checkbutton_constant_cell_width = None
+        self.checkbutton_constant_cell_height = None
         self.button_create = None
         self.button_reset = None
 
@@ -147,8 +147,8 @@ class Window:
 
         # Global Vars
         self.current_dir = "/"
-        self.constant_cell_width = IntVar()  # Not Implemented
-        self.constant_cell_height = IntVar()  # Not Implemented
+        self.constant_cell_width = IntVar()
+        self.constant_cell_height = IntVar()
         self.row_entry = {}
         self.col_entry = {}
         self.img_entry = {}
@@ -157,8 +157,8 @@ class Window:
         self.footer_buttons_row_offset = 0
         self.button_add_image = None
         self.button_duplicate_image = None
-        self.checkbutton_constant_cell_width = None  # Not Implemented
-        self.checkbutton_constant_cell_height = None  # Not Implemented
+        self.checkbutton_constant_cell_width = None
+        self.checkbutton_constant_cell_height = None
         self.button_create = None
         self.button_reset = None
 
